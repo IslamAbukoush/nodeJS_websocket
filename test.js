@@ -1,4 +1,4 @@
-import { WebSocketServer } from "ws";
+const WebSocket = require('ws');
 
 let blockId = 6;
 let clientId = 0;
@@ -52,6 +52,7 @@ wss.on('connection', (ws) => {
                 if (message.action === 'place') {
                     message.id = blockId;
                     blockId += 6;
+                    world.push(message);
                     broadcastMessage(message);
                     setTimeout(() => {
                         broadcastMessage(message);
@@ -99,7 +100,7 @@ wss.on('connection', (ws) => {
     });
 });
 
-console.log(`WebSocket server running at ws://localhost:${PORT}/john`);
+console.log(`WebSocket server running at ws://localhost:${PORT}/craft`);
 
 // Function to broadcast a message to all clients
 function broadcastMessage(message) {
