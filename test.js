@@ -1,4 +1,4 @@
-const WebSocket = require('ws');
+import { WebSocketServer } from "ws";
 
 let blockId = 6;
 let clientId = 0;
