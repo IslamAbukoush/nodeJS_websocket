@@ -19,7 +19,7 @@ const clients = [];
 // WebSocket server setup
 const PORT = process.env.PORT || 3000;
 const HOST = process.env.HOST || "0.0.0.0";
-const wss = new WebSocket.Server({ port: PORT, host: HOST, path: '/john' });
+const wss = new WebSocket.Server({ port: PORT, host: HOST, path: '/craft' });
 
 wss.on('connection', (ws) => {
     console.log('New player connected');
