@@ -10,7 +10,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "ws": "file:"
+  "devDependencies": {
+    "ws": "^8.18.0"
   }
 }
