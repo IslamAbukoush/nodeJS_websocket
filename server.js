@@ -25,16 +25,16 @@ wss.on('connection', (ws) => {
     console.log('New player connected');
     
     ws.id = clientId++;
-    players[ws.id] = {x: 0, y: 0, z: 0, r: 0};
+    players[ws.id] = {x: 0, y: 0, z: 0, yaw: 0, pitch: 0};
 
-    const joinMsg = {action: "join", id: ws.id, x: 0, y: 0, z: 0, r: 0};
+    const joinMsg = {action: "join", id: ws.id, x: 0, y: 0, z: 0, yaw: 0, pitch: 0};
     broadcastMessage(joinMsg);
 
     // Add the new client to the clients array
     clients.push(ws);
 
     let playersMsg = Object.entries(players).map(e => {
-        return {id: e[0], x: e[1].x, y: e[1].y, z: e[1].z, r: e[1].r};
+        return {id: e[0], x: e[1].x, y: e[1].y, z: e[1].z, yaw: e[1].yaw, pitch: e[1].pitch};
     }).filter(e => e.id != ws.id);
 
     const worldMsg = {action: "load", world, players: playersMsg};
