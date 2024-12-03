@@ -62,6 +62,8 @@ wss.on('connection', (ws) => {
                     setTimeout(() => {
                         broadcastMessage(message);
                     }, 100);
+
+                    world = world.filter(b => {console.log(b.id, message.id); return b.id !== message.id - message.id%6});
                 } else if (message.action === 'move') {
                     message.id = ws.id;
                     broadcastMessage(message);
