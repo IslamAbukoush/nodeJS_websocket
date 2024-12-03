@@ -18,7 +18,9 @@ Check out the game repository [here](https://github.com/IslamAbukoush/3D_minecra
 
 3. **Install Dependencies**  
    ```bash
+   npm init -y
    npm install
+   npm install ws
    ```
 
 4. **Start the Server**  
